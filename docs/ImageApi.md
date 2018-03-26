@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **add_image**
-> Image add_image(image=image)
+> Image add_image(image=image, instrument_image=instrument_image)
 
 Create new image definition
 
@@ -39,10 +39,11 @@ layint_runtime_api.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = layint_runtime_api.ImageApi()
 image = layint_runtime_api.Image() # Image |  (optional)
+instrument_image = 'instrument_image_example' # str |  (optional)
 
 try: 
     # Create new image definition
-    api_response = api_instance.add_image(image=image)
+    api_response = api_instance.add_image(image=image, instrument_image=instrument_image)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ImageApi->add_image: %s\n" % e)
@@ -53,6 +54,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image** | [**Image**](Image.md)|  | [optional] 
+ **instrument_image** | **str**|  | [optional] 
 
 ### Return type
 
