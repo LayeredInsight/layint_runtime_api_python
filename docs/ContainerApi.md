@@ -5,6 +5,7 @@ All URIs are relative to *http://api-stage.layeredinsight.net/v0.01*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**build_container_dossier_tempate**](ContainerApi.md#build_container_dossier_tempate) | **GET** /Containers/{containerID}/DossierTemplate | Builds a security policy based on containers behavior
+[**delete_container**](ContainerApi.md#delete_container) | **DELETE** /Containers/{containerID} | Delete a container
 [**get_container_dossier**](ContainerApi.md#get_container_dossier) | **GET** /Containers/{containerID}/Dossier | Gets dossier for container
 [**get_container_logs**](ContainerApi.md#get_container_logs) | **GET** /Containers/{containerID}/GetContainerLogs | Gets behavioral logs for container
 [**get_containers**](ContainerApi.md#get_containers) | **GET** /Containers | Get containers
@@ -56,6 +57,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DossierTemplateResponse**](DossierTemplateResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_container**
+> delete_container(container_id)
+
+Delete a container
+
+Delete a container
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import layint_runtime_api
+from layint_runtime_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: ApiKey
+layint_runtime_api.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# layint_runtime_api.configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = layint_runtime_api.ContainerApi()
+container_id = 'container_id_example' # str | hexadecimal ID of container to delete
+
+try: 
+    # Delete a container
+    api_instance.delete_container(container_id)
+except ApiException as e:
+    print("Exception when calling ContainerApi->delete_container: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**| hexadecimal ID of container to delete | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

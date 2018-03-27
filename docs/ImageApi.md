@@ -39,7 +39,7 @@ layint_runtime_api.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = layint_runtime_api.ImageApi()
 image = layint_runtime_api.Image() # Image |  (optional)
-instrument_image = 'instrument_image_example' # str |  (optional)
+instrument_image = 'false' # str | Set to \"true\" to instrument image at time of API call (optional) (default to false)
 
 try: 
     # Create new image definition
@@ -54,7 +54,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image** | [**Image**](Image.md)|  | [optional] 
- **instrument_image** | **str**|  | [optional] 
+ **instrument_image** | **str**| Set to \&quot;true\&quot; to instrument image at time of API call | [optional] [default to false]
 
 ### Return type
 
