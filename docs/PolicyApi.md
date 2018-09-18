@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_policies**](PolicyApi.md#get_policies) | **GET** /Policies | Get all policies
 [**get_policy**](PolicyApi.md#get_policy) | **GET** /Policies/{policyID} | Get specific policy
 [**get_policy_by_name**](PolicyApi.md#get_policy_by_name) | **GET** /Policies/ByName/{policyName} | Get specific policy by name
+[**seccomp**](PolicyApi.md#seccomp) | **GET** /Policies/{policyID}/Seccomp | Get a Seccomp policy derivied from a LI policy
 [**suspend_policy**](PolicyApi.md#suspend_policy) | **POST** /Policies/{policyID}/Suspend | Suspend security policy
 [**update_policy**](PolicyApi.md#update_policy) | **POST** /Policies/{policyID} | Update security policy
 
@@ -322,6 +323,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **seccomp**
+> seccomp(policy_id, li_agent=li_agent)
+
+Get a Seccomp policy derivied from a LI policy
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import layint_runtime_api
+from layint_runtime_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: ApiKey
+layint_runtime_api.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# layint_runtime_api.configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = layint_runtime_api.PolicyApi()
+policy_id = 'policy_id_example' # str | hexadecimal ID of policy
+li_agent = false # bool | If true, the policy will include whitelisted syscalls for the LI agent. (optional) (default to false)
+
+try: 
+    # Get a Seccomp policy derivied from a LI policy
+    api_instance.seccomp(policy_id, li_agent=li_agent)
+except ApiException as e:
+    print("Exception when calling PolicyApi->seccomp: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policy_id** | **str**| hexadecimal ID of policy | 
+ **li_agent** | **bool**| If true, the policy will include whitelisted syscalls for the LI agent. | [optional] [default to false]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
